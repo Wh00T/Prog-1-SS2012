@@ -18,7 +18,7 @@ public class setSquare {
 											+ Gameboard.getColumns() + ".");
 							continue;
 						}
-					} catch (Exception E) {
+					} catch (NumberFormatException E) {
 						System.out.println("Bitte geben Sie eine Zahl ein!");
 						continue;
 					}
@@ -37,7 +37,7 @@ public class setSquare {
 												+ Gameboard.getColumns() + ".");
 								continue;
 							}
-						} catch (Exception E) {
+						} catch (NumberFormatException E) {
 							System.out
 									.println("Bitte geben Sie eine Zahl ein!");
 							continue;
@@ -47,16 +47,19 @@ public class setSquare {
 					if (Player.getCurrentPlayer() == Player.getPlayer2()) {
 						// column = random blabla
 						Random r = new Random();
-						column = (r.nextInt(Gameboard.getColumns() - 1) + 1);
-						// -1 verhindert ArrayOutOfBounds, +1 wandelt es ins
-						// menschliche Format
+						try {
+							column = (r.nextInt(Gameboard.getColumns()) + 1);
+						}
+						catch (ArrayIndexOutOfBoundsException e) {
+							//kann gar nicht passieren
+						}
 						// System.out.println("Der Computer setzt in die Spalte "
 						// + column + ".");
 						break;
 					}
 				}
 			}
-			column--; // Array 0
+			column--;
 			int poscheck;
 			if (gameboard[0][column] != '\0') {
 				if (Player.getCurrentPlayer() == Player.getPlayer1()) {
@@ -94,9 +97,9 @@ public class setSquare {
 										+ " hat gewonnen");
 								System.exit(0);
 							} else if (Ruleset.IsGameOverNoWinner()) {
+								Gameboard.showgameboard(gameboard);
 								System.out
 										.println("Es gibt keinen Gewinner. Das Match endet unentschieden.");
-								Gameboard.showgameboard(gameboard);
 								System.exit(0);
 							}
 							break;
@@ -114,9 +117,9 @@ public class setSquare {
 										+ " hat gewonnen");
 								System.exit(0);
 							} else if (Ruleset.IsGameOverNoWinner()) {
+								Gameboard.showgameboard(gameboard);
 								System.out
 										.println("Es gibt keinen Gewinner. Das Match endet unentschieden.");
-								Gameboard.showgameboard(gameboard);
 								System.exit(0);
 							}
 							break;

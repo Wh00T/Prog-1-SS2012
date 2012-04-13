@@ -17,6 +17,7 @@ public class Gamemode {
 			} else if (input1.equals("SP")) {
 				Gamemode.setGamemode("SP");
 				Player.setPlayer1();
+				Player.setPlayer2();
 				break;
 			} else {
 				System.err.println("Sie müssen sich entweder für den Singleplayer (SP) oder Multiplayer (MP) entscheiden.");

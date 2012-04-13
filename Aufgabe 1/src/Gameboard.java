@@ -14,7 +14,7 @@ public class Gameboard {
 			System.out.println("Bitte geben Sie die Höhe des Spielfeldes ein: ");
 			try {
 				rows = Integer.parseInt(Input.input());
-			} catch (Exception E) {
+			} catch (NumberFormatException E) {
 				System.out.println("Bitte geben Sie eine Zahl ein!");
 				continue;
 			}
@@ -39,7 +39,7 @@ public class Gameboard {
 			System.out.println("Bitte geben Sie die Breite des Spielfeldes ein: ");
 			try {
 				columns = Integer.parseInt(Input.input());
-			} catch (Exception E) {
+			} catch (NumberFormatException E) {
 				System.out.println("Bitte geben Sie eine Zahl ein!");
 				continue;
 			}
