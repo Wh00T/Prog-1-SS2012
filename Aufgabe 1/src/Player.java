@@ -13,11 +13,7 @@ public class Player {
 
 	public static void setPlayer1() {
 		System.out.println("Bitte geben Sie den ersten Spielernamen ein: ");
-		try {
-			Player.player1 = Input.input();
-		} catch (Exception E) {
-			System.err.println("Leider ist ein Fehler bei der Namenseingabe aufgetreten.");
-		}
+		Player.player1 = Input.input();
 	}
 
 	public static String getPlayer2() {
@@ -28,11 +24,7 @@ public class Player {
 		if (Gamemode.getGamemode() == "MP") {
 			while (true) {
 				System.out.println("Bitte geben Sie den zweiten Spielernamen ein: ");
-				try {
-					Player.player2 = Input.input();
-				} catch (Exception E) {
-					System.err.println("Leider ist ein Fehler bei der Namenseingabe aufgetreten.");
-				}
+				Player.player2 = Input.input();
 				if (Player.getPlayer1().equals(Player.getPlayer2())) {
 					System.err.println("Bitte geben Sie einen anderen Namen ein.");
 				} else {
@@ -57,7 +49,7 @@ public class Player {
 			counter++;
 		} else {
 			Gameboard.showgameboard(Gameboard.getGameboard());
-			System.err.println("Unentschieden!");
+//			System.err.println("Unentschieden!");
 		}
 	}
 

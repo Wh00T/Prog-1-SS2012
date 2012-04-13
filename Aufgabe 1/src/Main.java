@@ -1,7 +1,7 @@
 public class Main {
 	
-	public static void main(String[] args) throws Exception {
-			
+	public static void main(String[] args) {
+		
 //		int gameboard[][] = new int[5][6];
 //		System.out.println(gameboard[0].length);
 		
@@ -12,7 +12,11 @@ public class Main {
 		while (true) {
 			Player.setCurrentSign();
 			Player.setCurrentPlayer();
-			Ruleset.setzeFeld(Gameboard.getGameboard());
+			try {
+				setSquare.placeSquare();
+			} catch (Exception e){
+				// bereits verhindert
+			}
 		}
 		
 

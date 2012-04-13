@@ -7,15 +7,15 @@ public class Gamemode {
 		while (true) {
 			System.out.println("Möchten Sie Singleplayer (SP) oder Multiplayer (MP) spielen?");
 			String input1 = Input.input();
-			if (input1.equals("SP")) {
-				Gamemode.setGamemode("SP");
+			if (input1.equals("MP")) {
+				Gamemode.setGamemode("MP");
 				Player.setPlayer1();
 				do {
 					Player.setPlayer2();
 				} while (Player.getPlayer1().equals(Player.getPlayer2()));
 				break;
-			} else if (input1.equals("MP")) {
-				Gamemode.setGamemode("MP");
+			} else if (input1.equals("SP")) {
+				Gamemode.setGamemode("SP");
 				Player.setPlayer1();
 				break;
 			} else {
